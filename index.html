@@ -16,37 +16,48 @@
         }
     </style>
 </head>
-<header>
-    <div id="nav">
-        <nav>
-            <a class='logo' href="index.html"><img src="img/Logo.png" alt="fotoEmpresa"></a>
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobreNos.html">Sobre Nós</a></li>
-                <li><a href="equipe.html" class="active">Equipe</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="calculadora.html">Calculadora</a></li>
-                <li><a href="telaContato.html">Contatos</a></li>
-                <div class="auth-container">
-                    <a href="#"><div class="anim-auth left"></div>Login</a>
-                    <a href="#">Registro<div class="anim-auth right"></div></a>
-                </div>
-            </ul>
-        </nav>
+<body>
+<nav id="navbar">
+    <div class="collapse" onclick="collapse()">
+        <span class="material-symbols-rounded" id="collapse_text">
+            chevron_left
+        </span>
     </div>
-</header>
+
+    <div class="head">
+        <img src="img/Logo.png">
+        <h3>SMFP<br><span>Sistema de Mapeamento de Fluxo de Pessoas</span></h3>
+    </div>
+    <div class="menu">
+        <ul>
+            <li class="active"><a href="#">DashBoard</a></li>
+            <li><a href="#">Mapa de Calor</a></li>
+            <li><a href="#">Ambientes</a></li>
+            <li><a href="#">Sensores</a></li>
+            <li><a href="#">Configurações</a></li>
+        </ul>
+    </div>
+    <div class="account">
+        <span class="material-symbols-rounded">
+            account_circle
+        </span>
+        <div class="perfil">
+            <h3>Nome do Usuário</h3>
+            <a href="#">Sair</a>
+        </div>
+    </div>
+</nav>
 
 <div class="page-title container">
     <h1>Dashboard Empresa Fulano</h1>
     <div></div>
 </div>
-<body>
-    <div class="areaGrafico">
-        <h1>Ambiente 1</h1>
-        <section style="width: 100%;">
-            <canvas id="chave"></canvas>
-        </section>
-    </div>
+<div class="areaGrafico container">
+    <h1>Ambiente 1</h1>
+    <section style="width: 100%;">
+        <canvas id="chave"></canvas>
+    </section>
+</div>
 
     <script>
         /* -- chave */
@@ -152,3 +163,12 @@
 </body>
 
 </html>
+<script>
+    var isCollapsed = false;
+
+    function collapse(collapse_button){
+        navbar.style.left = isCollapsed ? '0px' : '-260px';
+        collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
+        isCollapsed = !isCollapsed;
+    }
+</script>
