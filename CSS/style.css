@@ -8,136 +8,139 @@
 body{
     height: 100vh;
     background-color: #1C1C1C;
-    background-size: cover;
 }
-nav a{
+nav *{
     color: white;
     text-decoration: none;
 }
-nav{
-    display: flex;
-    align-content: space-between;
-    align-items: center;
-    font-size: 20px;
-    height: 10vh;
-    width:100vw;
+nav {
+    width: 250px;
+    height: 100vh;
+
     position: fixed;
-    z-index: 999;
-    top: 0px;
-    background-color: #111111;
-    justify-content: space-between;
-}
-button {cursor: pointer;}
-.navLinks{
-    width: 40%;
-}
-.logo img{
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.nav-list{
-    margin-right: 40px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-.nav-list li{
-    letter-spacing: 3px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    margin-right: 25px;
-}
-.nav-list li a:hover{
-    border-bottom: 3px #00FF43 solid;
-    transform: scale(2, 0.5);
-}
-.active {
-    border-bottom: 3px #00FF43 solid;
-    transform: scale(2, 0.5);
-    cursor: default;
-    opacity: 0.7;
-}
-.auth-container {
-    position: relative;
-    border: 3px solid #00FF43;
-    border-radius: 15px;
-    width: 180px;
-    height: 35px;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.auth-container a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    position: relative;
-    z-index: 2;
+    left: 0px;
+
+    background-color: #1f1f1f;
+    box-shadow: 1px 3px 20px 0 #000000d4;
+
+    transition: 800ms;
 }
 
-.anim-auth{
+nav .head {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.head img {
+    width: 50px;
+
+    margin-right: 5px;
+}
+
+.head h3{
+    text-align: center;
+}
+
+.head h3 span {
+    font-size: small;
+    font-weight: 400;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    width: 0px;
+
+    margin-bottom: 5px;
+
+    font-weight: 700;
+    font-size: large;
+
+    cursor: pointer;
+
+    transition: 600ms;
+}
+
+.menu li a{
+    display: block;
+
+    width: 250px;
+
+    padding-left: 20px;
+}
+
+.menu li:hover {
+    width: 260px;
+
+    background-color: #00FF43;
+}
+
+.active {
+    width: 260px !important;
+
+    background-color: #00FF43;
+}
+
+.collapse{
+    position: absolute;
+    top: 50%;
+    left: 250px;
+
+    width: 60px;
+    height: 60px;
+
     background-color: #00FF43;
 
-    width: 90px;
-    height: 35px;
+    border-radius: 0% 50% 50% 0%;
 
-    position: absolute;
-    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: 800ms;
+
+}
+
+.collapse span {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 48;
+
+    font-size: 2.8em;
 
     transition: 1s;
 }
 
-.anim-auth.left{
-    margin-left: -182px;
+.account {
+    position: absolute;
+    bottom: 0px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 10px;
 }
 
-.auth-container a:hover .anim-auth.left {
-    margin-left: 0px;
-}
+.account .material-symbols-rounded{
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 48;
 
-.anim-auth.right{
-    margin-right: -182px;
-}
-
-.auth-container a:hover .anim-auth.right {
-    margin-right: 0px;
-}
-
-.container{
-    padding-left: 84px;
-    padding-right: 84px;
-    margin-top: 10vh;
-}
-
-.page-title{
-    width: max-content;
-    margin-top: calc(10vh + 35px);
-}
-
-.page-title h1{
-    color: white;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.page-title div{
-    width: 35%;
-    height: 9px;
-    background: #0CE817;
-    border-radius: 20px;
-    margin-bottom: 25px
-}
-
-.link-disable{
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
+    font-size: 2.8em;
+    margin-right: 10px;
 }
