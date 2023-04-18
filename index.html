@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Dashboard</title>
+    <title>Line Chart</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <style>
         canvas {
             -moz-user-select: none;
@@ -16,94 +16,89 @@
         }
     </style>
 </head>
-<body>
-<nav id="navbar">
-    <div class="collapse" onclick="collapse()">
-        <span class="material-symbols-rounded" id="collapse_text">
-            chevron_left
-        </span>
-    </div>
 
-    <div class="head">
-        <img src="img/Logo.png">
-        <h3>SMFP<br><span>Sistema de Mapeamento de Fluxo de Pessoas</span></h3>
+<body>
+    <nav id="navbar">
+        <div class="collapse" onclick="collapse()">
+            <span class="material-symbols-rounded" id="collapse_text">
+                chevron_left
+            </span>
+        </div>
+
+        <div class="head">
+            <img src="img/Logo.png">
+            <h3>SMFP<br><span>Sistema de Mapeamento de Fluxo de Pessoas</span></h3>
+        </div>
+        <div class="menu">
+            <ul>
+                <li class="active"><a href="#">DashBoard</a></li>
+                <li><a href="#">Mapa de Calor</a></li>
+                <li><a href="#">Ambientes</a></li>
+                <li><a href="#">Sensores</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </div>
+        <div class="account">
+            <span class="material-symbols-rounded">
+                account_circle
+            </span>
+            <div class="perfil">
+                <h3>Nome do Usuário</h3>
+                <a href="#">Sair</a>
+            </div>
+        </div>
+    </nav>
+    <div class="page-title container">
+        <h1>Dashboard</h1>
+        <div></div>
     </div>
-    <div class="menu">
-        <ul>
-            <li class="active"><a href="#">DashBoard</a></li>
-            <li><a href="#">Mapa de Calor</a></li>
-            <li><a href="#">Ambientes</a></li>
-            <li><a href="#">Sensores</a></li>
-            <li><a href="#">Configurações</a></li>
-        </ul>
+    <div id="grafico">
+
+        <section style="width: 60%;">
+            <canvas id="chave"></canvas>
+        </section>
     </div>
-    <div class="account">
-        <span class="material-symbols-rounded">
-            account_circle
-        </span>
-        <div class="perfil">
-            <h3>Nome do Usuário</h3>
-            <a href="#">Sair</a>
+    <div id="kpos">
+        <div id="kpo1">
+            <p>Servidor Carregando</p>
+        </div>
+    
+        <div id="kpo2">
+            <p>Servidor Carregando</p>
         </div>
     </div>
-</nav>
-
-<div class="page-title container">
-    <h1>Dashboard Empresa Fulano</h1>
-    <div></div>
-</div>
-<div class="areaGrafico container">
-    <h1>Ambiente 1</h1>
-    <section style="width: 100%;">
-        <canvas id="chave"></canvas>
-    </section>
-</div>
 
     <script>
         /* -- chave */
         var contextoChave = document.getElementById('chave').getContext('2d');
         contextoChave.canvas.width = 1000;
         contextoChave.canvas.height = 300;
+        var quantidade = 0;
         var chave = new Chart(
-            contextoChave,
-            {
+            contextoChave, {
                 type: 'line',
                 data: {
                     datasets: [{
                         label: 'Chave',
                         type: 'line',
-                        data: [10, 90, 10, 45, 122,  93],
-                        borderColor: ['#FFFFFF'],
-                        backgroundColor: ['#00ff43']
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
                     }]
                 },
                 options: {
-                    legend:{
-                        labels:{
-                            fontColor: "#FFFFFF"
-                        },
-                    },
-                    plugins:{
-                        customCanvasBackgroundColor:{
-                            color: 'LightGreen',
-                        }
-                    },
                     scales: {
                         xAxes: [{
                             distribution: 'series',
                             ticks: {
-                                fontColor: 'FFF',
                                 beginAtZero: true
                             }
                         }],
                         yAxes: [{
                             scaleLabel: {
-                                fontColor: ['#fffff'],
                                 display: true,
                                 labelString: 'Chave'
                             },
                             ticks: {
-                                fontColor: ['#fffff'],    
                                 beginAtZero: true
                             }
                         }]
@@ -116,9 +111,10 @@
         );
 
         var paginacao = {};
-        var tempo = {};/*
-        function obterDados(grafico, endpoint) {*/
-            /*var http = new XMLHttpRequest();
+        var tempo = {};
+
+        function obterDados(grafico, endpoint) {
+            var http = new XMLHttpRequest();
             http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
             http.send(null);
             var valores = JSON.parse(http.responseText);
@@ -132,43 +128,48 @@
             var ultimaPaginacao = paginacao[endpoint];
             paginacao[endpoint] = valores.length;
             var valores = valores.slice(ultimaPaginacao);
-            valores = [10, 20, 30, 40, 50, 50, 70 ]
             valores.forEach((valor) => {
-
-            for(var i = 0; i <= valores.length; i++){
-                grafico.data.labels.push[]
-            }
                 //Máximo de 60 itens exibidos no gráfico
                 if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
                     grafico.data.labels.shift();
                     grafico.data.datasets[0].data.shift();
+
+                    if (valor == 10) {
+                        quantidade++;
+                        kpo1.innerHTML = `Passaram ${quantidade} pessoas`;
+                    }
+                }
+                if(quantidade > 20 && quantidade < 90){
+                    kpo2.innerHTML = `Fluxo de pessoas está adequado`
+                    kpo2.style = "color: black;"
+                }
+                else if(quantidade <=20 ){
+                    kpo2.innerHTML = `Fluxo de pessoas abaixo da média`
+                    kpo2.style = "color: red;"
+                }
+                else{
+                    kpo2.innerHTML = `Fluxo de pessoas acima da média`
+                    kpo2.style = "color: black; text-decoration: overline;"
                 }
 
                 grafico.data.labels.push(tempo[endpoint]++);
                 grafico.data.datasets[0].data.push(parseFloat(valor));
                 grafico.update();
+
             })
         }
-    
 
         setInterval(() => {
-            obterDados(dht11Umidade, 'dht11/umidade');
-            obterDados(dht11Temperatura, 'dht11/temperatura');
-            obterDados(luminosidade, 'luminosidade');
-            obterDados(lm35Temperatura, 'lm35/temperatura');
             obterDados(chave, 'chave');
-        }, 1000);*/
+        }, 1000);
+        var isCollapsed = false;
 
+        function collapse(collapse_button) {
+            navbar.style.left = isCollapsed ? '0px' : '-260px';
+            collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
+            isCollapsed = !isCollapsed;
+        }
     </script>
 </body>
 
 </html>
-<script>
-    var isCollapsed = false;
-
-    function collapse(collapse_button){
-        navbar.style.left = isCollapsed ? '0px' : '-260px';
-        collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
-        isCollapsed = !isCollapsed;
-    }
-</script>

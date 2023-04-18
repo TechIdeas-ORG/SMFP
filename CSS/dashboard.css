@@ -1,8 +1,35 @@
-.areaGrafico{
+section{
+    margin: auto;
+    margin-top: 40px;
+}
+#grafico h1{
+    color: white;
+    margin-left: 40px;
+
+}
+/* #grafico{
+    margin: 10px;
+} */
+#navbar{
+    margin-right: 20px;
+    margin-top: 0;
+}
+#kpos{
+    display: flex;
+    justify-content: space-around;
     width: 80%;
     margin: auto;
-    /* background-color: white; */
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
+    height: auto;
+}
+#kpo1,#kpo2{
+    height: 20vh;
+    width: 300px;
+    border: 1px solid black;
+    margin:auto;
+    margin-top: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #0DFFB6 0%, #00FF43 100%);
 }
