@@ -1,8 +1,53 @@
 .areaGrafico{
     width: 80%;
     margin: auto;
-    /* background-color: white; */
     padding: 15px;
     border-radius: 10px;
     color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+#div_API{
+    height: 60vh;
+    width: 80%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+
+}
+.div_botao{
+    width: 20%;
+    height: 10%;
+    margin-top: 50px;
+    margin-left: 50%;
+   text-align: center;
+    display: flex;
+}
+.bt11{
+    border-radius: 15px;
+    width: 50%;
+    height: 40%;
+    margin-right: 2%;
+    background-color: #3BDB43;
+}
+.bt22{
+    border-radius: 15px;
+    width: 50%;
+    height: 40%;
+    margin-right: 2%;
+    background-color: #3BDB43;
+}
+.areaGrafico container{
+    display: flex;
+}
+.divGraf1{
+    width: 50%;
+    height: auto;
+    display: block;
+}
+.divGraf2{
+    width: 50%;
+    height: auto;
+    display: block;
 }
