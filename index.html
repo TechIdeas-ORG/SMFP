@@ -57,46 +57,22 @@
     <div id="graficojs" class="areaGrafico container">
         <div class="divGraf1" id="divGraf1">
             <h1 id="chave1A">Ambiente</h1><br><br>
-            <section style="width: 100%;" id="ambiente1">
+            <section style="width: 90%;" id="ambiente1">
                 <canvas id="chave1"></canvas>
             </section>
         </div>
 
         <div class="divGraf2" id="divGraf2">
-            <h1 id="chave1B">Ambiente</h1><br><br>
+            <h1 id="chave1B">Geral</h1><br><br>
             <section style="width: 100%;" id="ambiente2">
                 <canvas id="chave2"></canvas>
             </section>
         </div>
 
 
-
-        <div id="div_API">
-            <h1>Sensor Chave</h1><br><br>
-            <section class="grafico1" style="width: 90%;" id="ambiente3">
-                <canvas id="chave"></canvas>
-            </section>
-        </div>
     </div>
-    <div id="div_botao" class="div_botao">
-        <button onclick="bt1()" class="bt11">
-            <H1>1</H1>
-        </button>
-        <button onclick="bt2()" class="bt22">
-            <H1>2</H1>
-        </button>
-    </div>
+    
     <script>
-        chave1.style.display = "none"
-        chave1A.style.display = "none"
-        div_API.style.display = "none"
-        chave2.style.display = "none"
-        chave1B.style.display = "none"
-        ambiente3.style.display = "none"
-        ambiente2.style.display = "none"
-        ambiente1.style.display = "none"
-        divGraf1.style.display = "none"
-        divGraf2.style.display = "none"
         /* -- chave */
         var contextoChave = document.getElementById('chave1').getContext('2d');
         contextoChave.canvas.width = 1000;
@@ -106,10 +82,11 @@
             {
                 type: 'line',
                 data: {
+                    //labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00'],
                     datasets: [{
                         label: 'Chave',
                         type: 'line',
-                        data: [10, 90, 10, 45, 122, 93],
+                        //data: [10, 90, 10, 145, 122, 93],
                         borderColor: ['#FFFFFF'],
                         backgroundColor: ['#00ff43']
                     }]
@@ -155,11 +132,12 @@
         var contextoChave = document.getElementById('chave2').getContext('2d');
         contextoChave.canvas.width = 1000;
         contextoChave.canvas.height = 300;
-        var chave = new Chart(
+        var chave2 = new Chart(
             contextoChave,
             {
                 type: 'line',
                 data: {
+                    labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00'],
                     datasets: [{
                         label: 'Chave',
                         type: 'line',
@@ -205,46 +183,7 @@
                 }
             }
         );
-        var contextoChave = document.getElementById('chave').getContext('2d');
-        contextoChave.canvas.width = 1000;
-        contextoChave.canvas.height = 300;
-        var chave = new Chart(
-            contextoChave,
-            {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: 'Chave',
-                        type: 'line',
-                        borderColor: ['#ffd902'],
-                        backgroundColor: ['#ffe135']
-                    }]
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }/*,
-                            backgroundColor: ['#00ff43']*/
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Chave'
-                            },
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
-                    }
-                }
-            }
-        );
+        
 
         var paginacao = {};
         var tempo = {};
@@ -298,31 +237,5 @@
         navbar.style.left = isCollapsed ? '0px' : '-260px';
         collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
         isCollapsed = !isCollapsed;
-    }
-
-    function bt2() {
-        chave1.style.display = "none"
-        chave1A.style.display = "none"
-        ambiente3.style.display = "block"
-        ambiente2.style.display = "none"
-        ambiente1.style.display = "none"
-        div_API.style.display = "block"
-        chave2.style.display = "none"
-        chave1B.style.display = "none"
-        divGraf1.style.display = "none"
-        divGraf2.style.display = "none"
-    }
-    function bt1() {
-        chave1.style.display = "block"
-        chave1A.style.display = "block"
-        div_API.style.display = "none"
-        chave2.style.display = "block"
-        chave1B.style.display = "block"
-        ambiente3.style.display = "none"
-        ambiente2.style.display = "block"
-        ambiente1.style.display = "block"
-        divGraf1.style.display = "block"
-        divGraf2.style.display = "block"
-        
     }
 </script>
