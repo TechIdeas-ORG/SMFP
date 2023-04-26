@@ -8,13 +8,6 @@
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/dashboard.css">
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,25 +47,61 @@
         <div></div>
     </div>
 
-    <div id="graficojs" class="areaGrafico container">
-        <div class="divGraf1" id="divGraf1">
+    <div class="areaGrafico container">
+        <div class="divGraf1">
             <h1 id="chave1A">Ambiente</h1><br><br>
             <section style="width: 90%;" id="ambiente1">
                 <canvas id="chave1"></canvas>
             </section>
         </div>
 
-        <div class="divGraf2" id="divGraf2">
+        <div class="divGraf2">
             <h1 id="chave1B">Geral</h1><br><br>
             <section style="width: 100%;" id="ambiente2">
                 <canvas id="chave2"></canvas>
             </section>
         </div>
+    </div>
 
+    <div class="areaKPI container">
+        <div class="kpi">
+            <h4>Média de Fluxo da semana</h4>
+            <span id="span_med_fluxo"></span>
+        </div>
+        <div class="kpi">
+            <h4>Maior Fluxo</h4>
+            <span id="span_max_fluxo"></span>
+        </div>
+        <div class="kpi">
+            <h4>Aumento do Fluxo</h4>
+            <span id="span_porcent_aum_fluxo"></span>
+        </div>
 
     </div>
     
     <script>
+        /*Dados de Testes*/
+        const label_sem = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
+        const dado_sem = [354, 540, 245, 424, 350, 348, 451];
+        var soma = 0;
+        var max_pos = 0;
+
+        for (var i = 0; i < dado_sem.length; i++){
+            var dado = dado_sem[i];
+            soma += dado;
+            if(dado > dado_sem[max_pos]){max_pos = i}
+        }
+
+        span_med_fluxo.innerHTML = (soma/dado_sem.length).toFixed(2);
+        span_max_fluxo.innerHTML = `${label_sem[max_pos]} teve o maior fluxo da semana com ${dado_sem[max_pos]} pontos`;
+        var dif_dia1_maiorDia = dado_sem[max_pos]-dado_sem[0];
+        /* 354 --- 100%
+           186 --- X%
+        */
+        span_porcent_aum_fluxo.innerHTML = `O aumento foi de ${((dif_dia1_maiorDia * 100)/ dado_sem[0]).toFixed(2)}% comparado ao primeiro dia da semana`;
+
+
+
         /* -- chave */
         var contextoChave = document.getElementById('chave1').getContext('2d');
         contextoChave.canvas.width = 1000;
@@ -222,7 +251,6 @@
 
 
         setInterval(() => {
-
             obterDados(chave, 'chave');
         }, 1000);
 
@@ -233,7 +261,7 @@
 <script>
     var isCollapsed = false;
 
-    function collapse(collapse_button) {
+    async function collapse(collapse_button) {
         navbar.style.left = isCollapsed ? '0px' : '-260px';
         collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
         isCollapsed = !isCollapsed;

@@ -51,3 +51,34 @@
     height: auto;
     display: block;
 }
+.areaKPI{
+    width: 50%;
+    height: 40vh;
+
+    display: flex;
+
+    gap: 80px;
+}
+.kpi{
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #3BDB43;
+
+    color: white;
+
+    box-shadow: -9px 9px 0px 0px #0a600e;
+
+    border-radius: 33px;
+}
+
+.kpi h4, span{
+    text-align: center;
+
+    margin-bottom: 10px;
+}
