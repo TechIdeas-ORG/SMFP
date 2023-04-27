@@ -1,0 +1,144 @@
+/* CONFIGURAÇÕES GERAIS */
+*{
+    font-family: Arial;
+}
+
+body{
+    margin: 0;
+}
+
+/* Inicio do Header */
+
+p{
+    color: white;
+}
+
+h3{
+    color: white;
+}
+
+.header{
+    background-color: rgb(0,0,0);
+    width: 100%;
+    height: 70px;
+
+}
+
+ul{
+    width: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.conteiner{
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.header .conteiner{
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.contactButtonStyle{
+    border: #00FF43 2px solid;
+    padding: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+/* Fim do Header */
+
+/* CARDS DOS AMBIENTES */
+.ambiente{
+    display: flex;
+    width: 30%;
+    height: 90%;
+    border: white 2px solid;
+    background-image: linear-gradient(rgb(31, 130, 52), rgb(9, 81, 25));
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+/* FIM DO CARDS*/
+
+/* Começo da Ambientação */
+
+.CRUD{
+    width: 100%;
+    height: 434px;
+    background-size: cover;
+}
+
+.conteiner{
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.Add button{
+    padding: 10px;
+    width: 40px;
+    background-image: linear-gradient(rgb(21, 155, 50), rgb(20, 67, 30));
+    border: rgb(255, 255, 255) 2px solid;
+    cursor: pointer;
+    position: absolute;
+    padding-left: 8px;
+}
+
+.addForm{
+    width: 18%;
+    height: 85%;
+    border: white 2px solid;
+    border-radius: 8px;
+    flex-direction: column;
+    background-image: linear-gradient(rgb(10, 68, 23), rgb(77, 239, 113));
+    align-items: center;
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+}
+
+.addForm button{
+    width: 80%;
+    padding: 8px;
+    border-color: white;
+    border-radius: 8px;
+    color: white;
+    background-color: #296539;
+    cursor: pointer;
+}
+
+/* Fim da Ambientação */
+
+/* Rodapé */
+
+.rodape{
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.CRUD .conteiner{
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+/* Fim do Rodapé */
