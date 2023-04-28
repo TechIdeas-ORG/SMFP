@@ -42,10 +42,23 @@
 </html>
 <script>
     var isCollapsed = false;
-
-    function collapse(collapse_button){
+    // Com lambda
+    /*function collapse(collapse_button){
         navbar.style.left = isCollapsed ? '0px' : '-260px';
         collapse_text.style.transform = isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)';
         isCollapsed = !isCollapsed;
+    }*/
+
+    // Sem lambda
+    function collapse(collapse_button){
+        if(isCollapsed){
+            navbar.style.left = '0px';
+            collapse_text.style.transform = 'rotate(0deg)';
+            isCollapsed = false;
+        }else{
+            navbar.style.left = '-260px';
+            collapse_text.style.transform = 'rotate(180deg)';
+            isCollapsed = true;
+        }
     }
 </script>
