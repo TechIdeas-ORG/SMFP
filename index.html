@@ -106,24 +106,26 @@
         var contextoChave = document.getElementById('chave1').getContext('2d');
         contextoChave.canvas.width = 1000;
         contextoChave.canvas.height = 300;
+        /* definindo o tamano e a criacao do grafico*/
         var chave = new Chart(
             contextoChave,
             {
                 type: 'line',
+                /*definindo o tipo do grafico*/
                 data: {
                     //labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00'],
                     datasets: [{
-                        label: 'Chave',
+                        label: 'Chave', /*Nome do grafico*/
                         type: 'line',
                         //data: [10, 90, 10, 145, 122, 93],
-                        borderColor: ['#FFFFFF'],
-                        backgroundColor: ['#00ff43']
+                        borderColor: ['#FFFFFF'],/* cor da borda*/
+                        backgroundColor: ['#00ff43']/* cor do fundo do grafico*/
                     }]
                 },
                 options: {
                     legend: {
                         labels: {
-                            fontColor: "#FFFFFF"
+                            fontColor: "#FFFFFF"/*cor da fonte do grafico*/
                         },
                     },
                     plugins: {
