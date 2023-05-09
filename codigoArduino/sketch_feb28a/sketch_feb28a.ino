@@ -11,6 +11,7 @@ void loop()
   int chave = digitalRead(7);
   if (chave == 0)
   {
+    Serial.println("1");
     while(chave == 0){
         qtdePessoas = qtdePessoas + 1;
         chave = digitalRead(7);
@@ -18,7 +19,7 @@ void loop()
             break;
         }
     }
-    Serial.println(qtdePessoas);
+    Serial.println(chave);
   }
   else
   {
