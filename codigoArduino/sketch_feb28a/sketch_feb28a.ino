@@ -18,11 +18,10 @@ void loop()
             break;
         }
     }
-    Serial.print("0;0;0;0;");
     Serial.println(qtdePessoas);
   }
   else
   {
-    Serial.println("0;0;0;0;0");
+    Serial.println("0");
   }
   }
